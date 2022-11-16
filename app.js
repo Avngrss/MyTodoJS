@@ -1,12 +1,15 @@
 const container = document.querySelector(".container");
-const html = document.querySelector("html");
-html.style.fontFamily = "'Poppins', sans-serif";
 
+const colors = {
+  yellow: "#FF8C00",
+  blue: "#20B2AA",
+};
 //Заголовок страницы
 const heading = document.createElement("h1");
 heading.innerText = "ToDo JavaScript";
 heading.classList.add("text-center", "mt-2");
 heading.style.fontFamily = "'Poppins', sans-serif";
+heading.style.color = `${colors.blue}`;
 container.append(heading);
 
 //Div для инпута и кнопки
@@ -30,9 +33,10 @@ btn.setAttribute("role", "submit");
 //Подзаголовок для имеющихся дел
 const headingBlock = document.createElement("h4");
 headingBlock.innerText = "Список моих дел:";
-headingBlock.classList.add("mt-3", "opacity-50");
+headingBlock.classList.add("mt-3");
 headingBlock.style.fontFamily = "'Poppins', sans-serif";
 headingBlock.style.fontWeight = "300";
+headingBlock.style.color = `${colors.yellow}`;
 
 //Список для вывода дел
 const list = document.createElement("div");
