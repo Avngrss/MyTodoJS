@@ -3,7 +3,9 @@ const container = document.querySelector(".container");
 const colors = {
   yellow: "#FF8C00",
   blue: "#20B2AA",
+  green: "#32CD32",
 };
+
 //Заголовок страницы
 const heading = document.createElement("h1");
 heading.innerText = "ToDo JavaScript";
@@ -56,6 +58,24 @@ btn.addEventListener("click", (e) => {
     return;
   }
   const listItem = document.createElement("div");
+  const check = document.createElement("input");
+  check.setAttribute("type", "checkbox");
+  check.style.marginRight = "30px";
+  check.style.height = "50px";
+  check.style.width = "50px";
+  check.addEventListener("input", (e) => {
+    if (e.currentTarget.checked == true) {
+      listItem__el.setAttribute("disable", "readonly");
+      editBtn.classList.add("disabled");
+      listItem__el.style.textDecoration = "line-through";
+      listItem__el.style.color = `${colors.green}`;
+    } else {
+      listItem__el.removeAttribute("disable", "readonly");
+      editBtn.classList.remove("disabled");
+      listItem__el.style.textDecoration = "none";
+    }
+  });
+  listItem.append(check);
   const listItem__el = document.createElement("input");
   listItem__el.value = inputValue;
   listItem__el.classList.add("w-100", "text-bg-success", "text-white-50", "p-2");
