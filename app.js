@@ -57,14 +57,16 @@ btn.addEventListener("click", (e) => {
     alert("Enter your task");
     return;
   }
-  const listItem = document.createElement("div");
+
+  //Создание таска
+  let listItem = document.createElement("div");
   const check = document.createElement("input");
   check.setAttribute("type", "checkbox");
   check.style.marginRight = "30px";
   check.style.height = "50px";
   check.style.width = "50px";
   check.addEventListener("input", (e) => {
-    if (e.currentTarget.checked == true) {
+    if (e.currentTarget.checked === true) {
       listItem__el.setAttribute("disable", "readonly");
       editBtn.classList.add("disabled");
       listItem__el.style.textDecoration = "line-through";
@@ -89,7 +91,7 @@ btn.addEventListener("click", (e) => {
   editBtn.innerText = "Edit";
   editBtn.style.marginRight = "20px";
   editBtn.addEventListener("click", () => {
-    if (editBtn.innerText == "Edit") {
+    if (editBtn.innerText === "Edit") {
       listItem__el.removeAttribute("readonly");
       listItem__el.focus();
       editBtn.innerText = "Save";
